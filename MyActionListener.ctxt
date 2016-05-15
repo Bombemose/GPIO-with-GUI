@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=textField
+comment0.target=MyActionListener(javax.swing.JTextField)
+comment0.text=\n\ Konstrukt\u00F8r\ for\ objekter\ af\ klassen\ MyActionListener\n
+comment1.params=e
+comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+numComments=2

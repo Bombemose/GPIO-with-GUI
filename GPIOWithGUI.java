@@ -13,8 +13,6 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;*/
-import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.GpioFactory;
 
 public class GPIOWithGUI
 {
@@ -23,8 +21,6 @@ public class GPIOWithGUI
      
     
     public static void main(String args[]) {
-       //Create LED's
-       final AdjustableLED myLED;
         
        /**JFrame frame;
         Container contentPane;
@@ -58,13 +54,6 @@ public class GPIOWithGUI
         frame.setVisible(true);
         */
        new GPIOWithGUI();
-       
-       myLED = new AdjustableLED(6);
-       
-       // create gpio controller
-       final GpioController gpio = GpioFactory.getInstance();
-       
-       myLED.on();
        
     }
 

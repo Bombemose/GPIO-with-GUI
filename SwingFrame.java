@@ -9,6 +9,10 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import com.pi4j.io.gpio.GpioController;
+import com.pi4j.io.gpio.GpioFactory;
 
 public class SwingFrame extends JFrame
 {
@@ -16,7 +20,8 @@ public class SwingFrame extends JFrame
     JPanel panel = new JPanel();
     JButton onButton = new JButton("On");
     JButton offButton = new JButton("Off");
-    
+    //Create LED's
+    final AdjustableLED myLED;
     
     /**
      * Konstruktør for objekter af klassen SwingFrame
@@ -24,11 +29,30 @@ public class SwingFrame extends JFrame
     public SwingFrame()
     {
         // initialiser instansvariable
-        super("Basic swing app");
         
+        super("Basic swing app");
+     
+        // create gpio controller and LED
+        final GpioController gpio = GpioFactory.getInstance();
+        myLED = new AdjustableLED(6);              
+
         setSize(400,300);
         setResizable(true);
         
+        onButton.addActionListener(new ActionListener() {
+            @Override    
+            public void actionPerformed(ActionEvent e) {
+                    myLED.on();
+                }
+            });
+        
+        offButton.addActionListener(new ActionListener() {
+            @Override    
+            public void actionPerformed(ActionEvent e) {
+                    myLED.off();
+                }
+            }); 
+            
         panel.add(onButton);
         panel.add(offButton);
 
